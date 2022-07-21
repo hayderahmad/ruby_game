@@ -1,9 +1,11 @@
+require_relative 'random'
 class Player
     attr_accessor :name, :health, :score
     def initialize(name, health= 100)
         @name = name.capitalize
         @health = health
         @score
+       
     end
     def to_s
         @score = @health + @name.length
@@ -18,6 +20,7 @@ class Player
         @health += 15
         puts "#{@name} got w00ted!"
     end
+    
     
 end
 if __FILE__ ==$PROGRAM_NAME
