@@ -1,15 +1,17 @@
 require_relative 'random'
 class Player
-    attr_accessor :name, :health, :score
+    attr_accessor :name, :health , :player_treasures
     def initialize(name, health= 100)
         @name = name.capitalize
         @health = health
-        @score
-       
+        @player_treasures = {}
+             
+    end
+    def score
+        @health + @name.length
     end
     def to_s
-        @score = @health + @name.length
-        "I'm #{@name} with a health of #{@health} and score of #{@score}."
+        "I'm #{@name} with a health of #{@health} and score of #{score}."
     end
     
     def blam
