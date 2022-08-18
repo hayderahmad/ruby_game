@@ -1,5 +1,8 @@
-require_relative 'random'
+
+require_relative 'playable'
+
 class Player
+    include Playable
     attr_accessor :name, :health , :player_treasures
     def initialize(name, health= 100)
         @name = name.capitalize
@@ -14,14 +17,6 @@ class Player
         "I'm #{@name} with a health of #{@health} and score of #{score}."
     end
     
-    def blam
-        @health -= 10
-        puts "#{@name} got blammed!"
-    end
-    def w00t
-        @health += 15
-        puts "#{@name} got w00ted!"
-    end
     
     
 end

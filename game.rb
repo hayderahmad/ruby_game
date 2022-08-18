@@ -2,14 +2,18 @@ require_relative 'player'
 require_relative 'game_turn'
 require_relative 'random'
 require_relative 'treasure_trove'
+require_relative 'load_files'
 
 class Game
+    include LoadFiles
     def initialize (game_name)
         @game_name = game_name
         @players = []
         
     end
     def add_player(player)
+        puts "entering #{player} info into #{@game_name}  game database...."
+        sleep 2
         @players.append(player)
     end
     def play(rounds)
@@ -42,13 +46,7 @@ class Game
             puts "#{total_points} grand total points"
         end
     end
-    def load_player(from_file)
-        File.readlines(from_file).each do |line|
-            name, health = line.split(',')
-            player = Player.new(name, Integer(health))
-            add_player(player)
-        end
-    end
+    
     def save_high_scores(to_file="high_scores.txt")
         File.open(to_file, "w") do |file|
             file.puts "#{@game_name} High Scores:"
