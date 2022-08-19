@@ -1,4 +1,5 @@
 require_relative 'game'
+require_relative 'player'
 require_relative 'berserk_player'
 require "async"
 
@@ -7,26 +8,35 @@ player2 = Player.new("larry", 60)
 player3 = Player.new("curly", 125)
 berserker = BerserkPlayer.new("berserker", 50)
 knuckleheads = Game.new("Knuckleheads")
-start = Time.now
+def sleeping
+  sleep 2
+end
 
+start = Time.now
 
 Async do |task|
   task.async {knuckleheads.add_player(player1)}
+  task.async {sleeping}
   task.async {knuckleheads.add_player(player2)}
+  task.async {sleeping}
   task.async {knuckleheads.add_player(player3)}
+  task.async {sleeping}
   task.async {knuckleheads.add_player(berserker)}
+  task.async {sleeping}
   task.async {knuckleheads.load_player("players.csv")}
 end
-puts "Duration for all players info to be uploaded to the database is #{Time.now - start} "
 
-
-#start = Time.now
 # knuckleheads.add_player(player1)
+# sleeping
 # knuckleheads.add_player(player2)
+# sleeping
 # knuckleheads.add_player(player3)
+# sleeping
 # knuckleheads.add_player(berserker)
+# sleeping
 # knuckleheads.load_player("players.csv")
-# puts "Duration for all players info to be uploaded to the database is #{Time.now - start} "
+
+puts "Duration for all players info to be uploaded to the database is #{Time.now - start} "
 
 
 loop do

@@ -1,8 +1,7 @@
 require_relative'treasure_trove'
 module GameTurn
     def self.turns(player)
-        rand = Random.new       
-        case rand.roll
+        case rand 1..10
         when 1..3 
             player.blam
         when 4..6
