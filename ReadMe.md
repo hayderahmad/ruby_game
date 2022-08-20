@@ -4,10 +4,31 @@
 
   In July this year started, the process of learning the Ruby language, and I thought that if I built a project in Ruby, I would be able to understand the use of the essential tools and concepts of Ruby. For that, I started making this game, and I kept adding to it and growing it to gather all what I have learned in the language.
 
-
 ## How it works
 
-By passing the info of the players names(required) and their health (optional) to the app either through the main file or through a csv file and then passing the number of the rounds in from the command line, the app will go through all players every round and assign a treasure to each player and change the health of the player either up or down, and it will keep doing this until the end of the rounds and then will ask if we want to keep playing or end the game by writing exit or quit which will break out of the game and print out the stats of the players and save them in a file
+By passing the info of the players names(required) and their health (optional) to the app either through the main file 
+
+example:
+
+`player1 = Player.new("moe")`
+`player2 = Player.new("larry", 60)`
+`player3 = Player.new("curly", 125)`
+`berserker = BerserkPlayer.new("berserker", 50)`
+
+to start a game
+
+`knuckleheads = Game.new("Knuckleheads")`
+
+or through a csv file
+
+`knuckleheads.load_player("players.csv")`
+
+ and then passing the number of the rounds in from the command line
+
+ after this question
+ How many game rounds? ('quit' to exit)
+ 
+ the app will go through all players every round and assign a treasure to each player and change the health of the player either up or down, and it will keep doing this until the end of the rounds and then will ask if we want to keep playing or end the game by writing exit or quit which will break out of the game and print out the stats of the players and save them in a file
 
 ## components
 
